@@ -1,5 +1,3 @@
-import QRCode from "qrcode";
-import { useEffect } from "react";
 import {
   Dialog,
   DialogTrigger,

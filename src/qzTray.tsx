@@ -5,7 +5,9 @@ export default function LabelPrinter() {
 
   const connectQZ = async () => {
     try {
+      // @ts-ignore
       if (!window.qz) throw new Error("QZ Tray not loaded");
+      // @ts-ignore
       await window.qz.websocket.connect();
       setIsConnected(true);
     } catch (err) {
@@ -15,13 +17,16 @@ export default function LabelPrinter() {
 
   const printLabel = async () => {
     try {
+      // @ts-ignore
       const printer = await window.qz.printers.find(); // Default printer
+      // @ts-ignore
       const config = window.qz.configs.create(printer);
       const data = [
         "\x1B\x40", // Reset
         "Label: Hello World\n",
         "\x1D\x56\x41", // Full cut
       ];
+      // @ts-ignore
       await window.qz.print(config, data);
     } catch (err) {
       console.error("Print Error:", err);

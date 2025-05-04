@@ -68,6 +68,7 @@ export default function SettingBar({ canvas }: { canvas?: Canvas }) {
       setWidth(Math.round(object.width * object.scaleX)?.toString());
       setColor(object.fill as string);
     } else if (object.type === "circle") {
+      // @ts-ignore
       setDiameter(Math.round(object.radius * 2 * object.scaleX)?.toString());
       setColor(object.fill as string);
       setHeight("");
